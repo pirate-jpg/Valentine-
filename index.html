@@ -34,6 +34,17 @@ h1 {
     line-height: 1.5em;
 }
 
+.slideshow {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+}
+
+.slideshow.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .slideshow img {
     width: 100%;
     border-radius: 12px;
@@ -51,6 +62,7 @@ h1 {
     text-decoration: none;
     font-weight: bold;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .heart {
@@ -71,24 +83,32 @@ h1 {
 <div class="container">
     <h1>Happy Valentine’s Day</h1>
 
-    <div class="slideshow">
-<img src="Photo1.PNG">
-<img src="Photo2.JPG">
-<img src="Photo3.jpg">
-    </div>
-
     <div class="message">
         To my best friend, my soulmate,<br>
         my lover, my mermaid, and my forever…<br><br>
         <strong>Will you be my Valentine?</strong>
     </div>
 
-    <a class="button" href="https://open.spotify.com/track/3mI9Z256VhQI6VAHRxFqUf" target="_blank">
+    <div class="button" onclick="playSong()">
         Play Our Song
-    </a>
+    </div>
+
+    <div class="slideshow" id="slideshow">
+        <img src="Photo1.PNG">
+        <img src="Photo2.JPG">
+        <img src="Photo3.jpg">
+    </div>
 </div>
 
 <script>
+function playSong() {
+    // Open the song
+    window.open("https://open.spotify.com/track/3mI9Z256VhQI6VAHRxFqUf", "_blank");
+
+    // Reveal the photos
+    document.getElementById("slideshow").classList.add("show");
+}
+
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
