@@ -1,1 +1,106 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Valentine</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #7b0f1f, #d94a64);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+.message {
+    font-size: 1.4em;
+    margin: 20px 0 30px;
+    line-height: 1.5em;
+}
+
+.slideshow img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 24px;
+    background: white;
+    color: #b3122d;
+    font-size: 1.2em;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.heart {
+    position: fixed;
+    color: rgba(255,255,255,0.3);
+    animation: float 8s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Valentine’s Day</h1>
+
+    <div class="slideshow">
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
+        <img src="photo3.jpg">
+    </div>
+
+    <div class="message">
+        To my best friend, my soulmate,<br>
+        my lover, my mermaid, and my forever…<br><br>
+        <strong>Will you be my Valentine?</strong>
+    </div>
+
+    <a class="button" href="https://open.spotify.com/track/3mI9Z256VhQI6VAHRxFqUf" target="_blank">
+        Play Our Song
+    </a>
+</div>
+
+<script>
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = "♥";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
