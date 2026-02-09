@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +12,6 @@ body {
     background: linear-gradient(135deg, #7b0f1f, #d94a64);
     color: white;
     text-align: center;
-    overflow-x: hidden;
 }
 
 .container {
@@ -23,34 +20,9 @@ body {
     padding: 30px 20px;
 }
 
-h1 {
-    font-size: 2.2em;
-    margin-bottom: 10px;
-}
-
 .message {
     font-size: 1.4em;
     margin: 20px 0 30px;
-    line-height: 1.5em;
-}
-
-.slideshow {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 1s ease;
-    margin-top: 20px;
-}
-
-.slideshow.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.slideshow img {
-    width: 100%;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .button {
@@ -60,30 +32,21 @@ h1 {
     color: #b3122d;
     font-size: 1.2em;
     border-radius: 30px;
-    text-decoration: none;
     font-weight: bold;
     margin-top: 20px;
     cursor: pointer;
 }
 
-.player {
+.player,
+.slideshow {
     display: none;
     margin-top: 20px;
 }
 
-.player.show {
-    display: block;
-}
-
-.heart {
-    position: fixed;
-    color: rgba(255,255,255,0.3);
-    animation: float 8s linear infinite;
-}
-
-@keyframes float {
-    from { transform: translateY(100vh); }
-    to { transform: translateY(-10vh); }
+.slideshow img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }
 </style>
 </head>
@@ -91,6 +54,7 @@ h1 {
 <body>
 
 <div class="container">
+
     <h1>Happy Valentine’s Day</h1>
 
     <div class="message">
@@ -109,8 +73,7 @@ h1 {
             width="100%"
             height="152"
             frameBorder="0"
-            allowfullscreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+            allow="autoplay; encrypted-media">
         </iframe>
     </div>
 
@@ -119,26 +82,14 @@ h1 {
         <img src="Photo2.JPG">
         <img src="Photo3.jpg">
     </div>
+
 </div>
 
 <script>
 function playSong() {
-    document.getElementById("player").classList.add("show");
-    document.getElementById("slideshow").classList.add("show");
+    document.getElementById("player").style.display = "block";
+    document.getElementById("slideshow").style.display = "block";
 }
-
-function createHeart() {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.innerHTML = "♥";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 15 + "px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 8000);
-}
-
-setInterval(createHeart, 400);
 </script>
 
 </body>
