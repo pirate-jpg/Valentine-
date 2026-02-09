@@ -37,7 +37,6 @@ body {
     cursor: pointer;
 }
 
-.player,
 .slideshow {
     display: none;
     margin-top: 20px;
@@ -67,16 +66,12 @@ body {
         Play Our Song
     </div>
 
-    <div class="player" id="player">
-        <iframe style="border-radius:12px"
-            src="https://open.spotify.com/embed/track/3mI9Z256VhQI6VAHRxFqUf"
-            width="100%"
-            height="152"
-            frameBorder="0"
-            allow="autoplay; encrypted-media">
-        </iframe>
-    </div>
+    <!-- Audio -->
+    <audio id="song" loop>
+        <source src="medley.mp3" type="audio/mpeg">
+    </audio>
 
+    <!-- Photos -->
     <div class="slideshow" id="slideshow">
         <img src="Photo1.PNG">
         <img src="Photo2.JPG">
@@ -87,7 +82,7 @@ body {
 
 <script>
 function playSong() {
-    document.getElementById("player").style.display = "block";
+    document.getElementById("song").play();
     document.getElementById("slideshow").style.display = "block";
 }
 </script>
